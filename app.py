@@ -16,30 +16,32 @@ freshness_classes = ["Fresh", "Semi-Fresh", "Rotten"]
 
 # ================= SHELF LIFE DATABASE =================
 shelf_life_db = {
-    ("Fresh",      "Banana"):      (1,  4),
-    ("Fresh",      "Bittermelon"): (1,  3),
-    ("Fresh",      "Cucumber"):    (1,  6),
-    ("Fresh",      "Eggplant"):    (1,  4),
-    ("Fresh",      "Orange"):      (1,  9),
-    ("Fresh",      "Papaya"):      (1,  4),
-    ("Fresh",      "Pineapple"):   (1,  15),
-    ("Fresh",      "Tomato"):      (1,  10),
-    ("Rotten",     "Banana"):      (7,  13),
-    ("Rotten",     "Bittermelon"): (5,  8),
-    ("Rotten",     "Cucumber"):    (12, 20),
-    ("Rotten",     "Eggplant"):    (8,  15),
-    ("Rotten",     "Orange"):      (20, 35),
-    ("Rotten",     "Papaya"):      (7,  12),
-    ("Rotten",     "Pineapple"):   (25, 35),
-    ("Rotten",     "Tomato"):      (24, 35),
-    ("Semi-Fresh", "Banana"):      (4,  7),
-    ("Semi-Fresh", "Bittermelon"): (3,  5),
-    ("Semi-Fresh", "Cucumber"):    (6,  12),
-    ("Semi-Fresh", "Eggplant"):    (4,  8),
-    ("Semi-Fresh", "Orange"):      (9,  20),
-    ("Semi-Fresh", "Papaya"):      (4,  7),
-    ("Semi-Fresh", "Pineapple"):   (15, 25),
-    ("Semi-Fresh", "Tomato"):      (10, 24),
+    ("Fresh", "Banana"): 3,
+    ("Fresh", "Bittermelon"): 2,
+    ("Fresh", "Cucumber"): 5,
+    ("Fresh", "Eggplant"): 3,
+    ("Fresh", "Orange"): 8,
+    ("Fresh", "Papaya"): 3,
+    ("Fresh", "Pineapple"): 7,
+    ("Fresh", "Tomato"): 9,
+
+    ("Rotten", "Banana"): 1,
+    ("Rotten", "Bittermelon"): 3,
+    ("Rotten", "Cucumber"): 3,
+    ("Rotten", "Eggplant"): 2,
+    ("Rotten", "Orange"): 3,
+    ("Rotten", "Papaya"): 2,
+    ("Rotten", "Pineapple"): 4,
+    ("Rotten", "Tomato"): 1,
+
+    ("Semi-Fresh", "Banana"): 3,
+    ("Semi-Fresh", "Bittermelon"): 2,
+    ("Semi-Fresh", "Cucumber"): 4,
+    ("Semi-Fresh", "Eggplant"): 4,
+    ("Semi-Fresh", "Orange"): 5,
+    ("Semi-Fresh", "Papaya"): 3,
+    ("Semi-Fresh", "Pineapple"): 10,
+    ("Semi-Fresh", "Tomato"): 6,
 }
 
 def get_shelf_life(freshness, fruit):
@@ -419,7 +421,7 @@ with col2:
             cam        = generate_gradcam(fruit_model, img_tensor)
             img_np     = np.array(image.resize((224, 224)))
             heatmap    = cv2.applyColorMap(np.uint8(255 * cam), cv2.COLORMAP_JET)
-            superimposed= np.clip(heatmap * 0.4 + img_np, 0, 255).astype(np.uint8)
+            superimposed = np.clip(heatmap * 0.4 + img_np, 0, 255).astype(np.uint8)
 
         f_color     = freshness_color(fresh)
         f_icon      = freshness_icon(fresh)
@@ -453,15 +455,14 @@ with col2:
         # ---- Shelf Life card ----
         shelf = get_shelf_life(fresh, fruit)
 
-        if shelf:
-            min_d, max_d  = shelf
-            bg_col        = shelf_badge_color(fresh)
+        if shelf is not None:
+            bg_col = shelf_badge_color(fresh)
             st.markdown(f"""
             <div class="shelf-card" style="background:{bg_col}55; border-color:{f_color}44;">
                 <div class="shelf-big-icon">🕰️</div>
                 <div class="shelf-text">
                     <div class="shelf-heading">Estimated Shelf Life</div>
-                    <div class="shelf-days" style="color:{f_color}">{min_d} – {max_d} days</div>
+                    <div class="shelf-days" style="color:{f_color}">{shelf} days</div>
                     <div class="shelf-sub">{fresh} &nbsp;·&nbsp; {fruit} &nbsp;·&nbsp; Based on detection result</div>
                 </div>
             </div>
