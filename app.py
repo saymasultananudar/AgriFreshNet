@@ -20,10 +20,10 @@ shelf_life_db = {
     ("Fresh", "Bittermelon"): 2,
     ("Fresh", "Cucumber"): 5,
     ("Fresh", "Eggplant"): 3,
-    ("Fresh", "Orange"): 8,
+    ("Fresh", "Orange"): 5,
     ("Fresh", "Papaya"): 3,
-    ("Fresh", "Pineapple"): 7,
-    ("Fresh", "Tomato"): 9,
+    ("Fresh", "Pineapple"): 6,
+    ("Fresh", "Tomato"): 5,
 
     ("Rotten", "Banana"): 0,
     ("Rotten", "Bittermelon"): 0,
@@ -34,14 +34,14 @@ shelf_life_db = {
     ("Rotten", "Pineapple"): 0,
     ("Rotten", "Tomato"): 0,
 
-    ("Semi-Fresh", "Banana"): 3,
+    ("Semi-Fresh", "Banana"): 1,
     ("Semi-Fresh", "Bittermelon"): 2,
-    ("Semi-Fresh", "Cucumber"): 4,
-    ("Semi-Fresh", "Eggplant"): 4,
-    ("Semi-Fresh", "Orange"): 5,
+    ("Semi-Fresh", "Cucumber"): 3,
+    ("Semi-Fresh", "Eggplant"): 3,
+    ("Semi-Fresh", "Orange"): 1,
     ("Semi-Fresh", "Papaya"): 3,
-    ("Semi-Fresh", "Pineapple"): 5,
-    ("Semi-Fresh", "Tomato"): 6,
+    ("Semi-Fresh", "Pineapple"): 3,
+    ("Semi-Fresh", "Tomato"): 2,
 }
 
 def get_shelf_life(freshness, fruit):
