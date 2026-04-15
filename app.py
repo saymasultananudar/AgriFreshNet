@@ -25,14 +25,14 @@ shelf_life_db = {
     ("Fresh", "Pineapple"): 7,
     ("Fresh", "Tomato"): 9,
 
-    ("Rotten", "Banana"): 1,
-    ("Rotten", "Bittermelon"): 3,
-    ("Rotten", "Cucumber"): 3,
-    ("Rotten", "Eggplant"): 2,
-    ("Rotten", "Orange"): 3,
-    ("Rotten", "Papaya"): 2,
-    ("Rotten", "Pineapple"): 4,
-    ("Rotten", "Tomato"): 1,
+    ("Rotten", "Banana"): 0,
+    ("Rotten", "Bittermelon"): 0,
+    ("Rotten", "Cucumber"): 0,
+    ("Rotten", "Eggplant"): 0,
+    ("Rotten", "Orange"): 0,
+    ("Rotten", "Papaya"): 0,
+    ("Rotten", "Pineapple"): 0,
+    ("Rotten", "Tomato"): 0,
 
     ("Semi-Fresh", "Banana"): 3,
     ("Semi-Fresh", "Bittermelon"): 2,
@@ -40,7 +40,7 @@ shelf_life_db = {
     ("Semi-Fresh", "Eggplant"): 4,
     ("Semi-Fresh", "Orange"): 5,
     ("Semi-Fresh", "Papaya"): 3,
-    ("Semi-Fresh", "Pineapple"): 10,
+    ("Semi-Fresh", "Pineapple"): 5,
     ("Semi-Fresh", "Tomato"): 6,
 }
 
